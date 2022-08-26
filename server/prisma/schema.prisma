@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+//criando uma tabela
+model Feedback { 
+  id String @id @default(uuid())
+
+  type String
+  comment String
+  screenshot String? //argumento "?" cria uma coluna que pode conter o valor null
+
+  @@map("feedbacks")
+}
